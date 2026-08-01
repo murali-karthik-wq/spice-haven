@@ -205,6 +205,121 @@
                 </div>
             </div>
         </section>
+
+        <section class="reservation-section">
+            <div class="section-title">
+                <h2>Book Your Table</h2>
+                <p>Reserve an unforgettable dining experience at Spice Haven.</p>
+            </div>
+
+            <div class="reservation-container">
+                <!-- Left: Contact Details & Hours -->
+                <div class="contact-info-card">
+                    <h3>Contact & Info</h3>
+                    <p class="contact-desc">
+                        We welcome you to enjoy an extraordinary culinary journey. For private events or special arrangements, feel free to reach out.
+                    </p>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <div>
+                                <h4>Location</h4>
+                                <p>123 Gourmet Avenue, Fine Dining District, NY 10001</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (555) 234-5678</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-icon">✉️</span>
+                            <div>
+                                <h4>Email</h4>
+                                <p>reservations@spicehaven.com</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-icon">⏰</span>
+                            <div>
+                                <h4>Opening Hours</h4>
+                                <p>Mon - Thu: 11:00 AM - 10:00 PM<br>Fri - Sun: 11:00 AM - 11:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-socials">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="Instagram">📷</a>
+                            <a href="#" aria-label="Facebook">🌐</a>
+                            <a href="#" aria-label="Twitter">🐦</a>
+                            <a href="#" aria-label="TripAdvisor">⭐</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Reservation Form -->
+                <div class="reservation-form-card">
+                    <h3>Make a Reservation</h3>
+                    <form class="booking-form" onsubmit="event.preventDefault();">
+                        <div class="form-group">
+                            <label for="res-name">Full Name</label>
+                            <input type="text" id="res-name" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="res-email">Email Address</label>
+                                <input type="email" id="res-email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="res-phone">Phone Number</label>
+                                <input type="tel" id="res-phone" placeholder="+1 (555) 000-0000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="res-date">Date</label>
+                                <input type="date" id="res-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="res-time">Time</label>
+                                <select id="res-time" required>
+                                    <option value="" disabled selected>Select Time</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="13:00">01:00 PM</option>
+                                    <option value="18:00">06:00 PM</option>
+                                    <option value="19:00">07:00 PM</option>
+                                    <option value="20:00">08:00 PM</option>
+                                    <option value="21:00">09:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="res-guests">Number of Guests</label>
+                            <select id="res-guests" required>
+                                <option value="1">1 Person</option>
+                                <option value="2" selected>2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5+ Guests</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-reserve">Reserve Table</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
