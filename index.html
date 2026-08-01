@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spice Haven | Restaurant</title>
+    <title>Spice Haven | Luxury Dining & Authentic Cuisine</title>
+    <meta name="description" content="Spice Haven - Experience authentic cuisine, gourmet dining, and unforgettable flavors in an elegant luxury atmosphere. Book your table online today.">
 
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍽️</text></svg>">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -14,23 +16,23 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <h2>🍽️ Spice Haven</h2>
+                <a href="#home"><h2>🍽️ Spice Haven</h2></a>
             </div>
 
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
 
-            <a href="#" class="btn">Book Table</a>
+            <a href="#contact" class="btn">Book Table</a>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" id="home">
             <div class="hero-content">
                 <h1>Experience the Taste of Authentic Cuisine</h1>
                 <p>
@@ -39,16 +41,17 @@
                 </p>
 
                 <div class="hero-buttons">
-                    <a href="#" class="btn">Explore Menu</a>
-                    <a href="#" class="btn-outline">Reserve Table</a>
+                    <a href="#menu" class="btn">Explore Menu</a>
+                    <a href="#contact" class="btn-outline">Reserve Table</a>
                 </div>
             </div>
 
             <div class="hero-image">
-                <img src="images/hero-food.png" alt="Delicious Food">
+                <img src="images/hero-food.png" alt="Delicious Gourmet Food Showcase" loading="eager" decoding="async">
             </div>
         </section>
-        <section class="popular-dishes">
+
+        <section class="popular-dishes" id="menu">
             <div class="section-title">
                 <h2>Our Popular Dishes</h2>
                 <p>Freshly prepared with premium ingredients and authentic flavors.</p>
@@ -56,11 +59,10 @@
 
             <div class="dish-grid">
                 <div class="dish-card">
-                    <img src="images/grilled-chicken.jpg" alt="Grilled Chicken Steak">
+                    <img src="images/grilled-chicken.jpg" alt="Grilled Chicken Steak" loading="lazy" decoding="async">
 
                     <div class="dish-content">
                         <h3>Grilled Chicken Steak</h3>
-
                         <p>
                             Tender grilled chicken served with fresh vegetables and our signature sauce.
                         </p>
@@ -70,16 +72,15 @@
                             <span class="price">₹499</span>
                         </div>
 
-                        <a href="#" class="btn">Order Now</a>
+                        <a href="#contact" class="btn">Order Now</a>
                     </div>
                 </div>
 
                 <div class="dish-card">
-                    <img src="images/margherita-pizza.jpg" alt="Margherita Pizza">
+                    <img src="images/margherita-pizza.jpg" alt="Margherita Pizza" loading="lazy" decoding="async">
 
                     <div class="dish-content">
                         <h3>Margherita Pizza</h3>
-
                         <p>
                             Artisan wood-fired pizza with fresh mozzarella, ripe cherry tomatoes, and basil.
                         </p>
@@ -89,16 +90,15 @@
                             <span class="price">₹399</span>
                         </div>
 
-                        <a href="#" class="btn">Order Now</a>
+                        <a href="#contact" class="btn">Order Now</a>
                     </div>
                 </div>
 
                 <div class="dish-card">
-                    <img src="images/chicken-biryani.jpg" alt="Royal Chicken Biryani">
+                    <img src="images/chicken-biryani.jpg" alt="Royal Chicken Biryani" loading="lazy" decoding="async">
 
                     <div class="dish-content">
                         <h3>Royal Chicken Biryani</h3>
-
                         <p>
                             Aromatic basmati rice cooked with tender chicken, saffron, and authentic spices.
                         </p>
@@ -108,16 +108,16 @@
                             <span class="price">₹549</span>
                         </div>
 
-                        <a href="#" class="btn">Order Now</a>
+                        <a href="#contact" class="btn">Order Now</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="about-us">
+        <section class="about-us" id="about">
             <div class="about-container">
                 <div class="about-image">
-                    <img src="images/about-restaurant.jpg" alt="Spice Haven Restaurant Interior">
+                    <img src="images/about-restaurant.jpg" alt="Spice Haven Luxury Restaurant Interior" loading="lazy" decoding="async">
                 </div>
 
                 <div class="about-content">
@@ -150,12 +150,12 @@
                         </div>
                     </div>
 
-                    <a href="#" class="btn">Learn More</a>
+                    <a href="#contact" class="btn">Learn More</a>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials">
+        <section class="testimonials" id="reviews">
             <div class="section-title">
                 <h2>What Our Guests Say</h2>
                 <p>Read authentic reviews from food connoisseurs and satisfied guests.</p>
@@ -164,7 +164,7 @@
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="images/customer1.jpg" alt="Sophia Reynolds" class="customer-photo">
+                        <img src="images/customer1.jpg" alt="Sophia Reynolds" class="customer-photo" loading="lazy" decoding="async">
                         <div class="customer-details">
                             <h3>Sophia Reynolds</h3>
                             <span class="customer-role">Food Critic, Culinary Digest</span>
@@ -178,7 +178,7 @@
 
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="images/customer2.jpg" alt="Alexander Wright" class="customer-photo">
+                        <img src="images/customer2.jpg" alt="Alexander Wright" class="customer-photo" loading="lazy" decoding="async">
                         <div class="customer-details">
                             <h3>Alexander Wright</h3>
                             <span class="customer-role">Executive & Guest</span>
@@ -192,7 +192,7 @@
 
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="images/customer3.jpg" alt="Elena Rostova" class="customer-photo">
+                        <img src="images/customer3.jpg" alt="Elena Rostova" class="customer-photo" loading="lazy" decoding="async">
                         <div class="customer-details">
                             <h3>Elena Rostova</h3>
                             <span class="customer-role">Frequent Diner</span>
@@ -206,7 +206,7 @@
             </div>
         </section>
 
-        <section class="reservation-section">
+        <section class="reservation-section" id="contact">
             <div class="section-title">
                 <h2>Book Your Table</h2>
                 <p>Reserve an unforgettable dining experience at Spice Haven.</p>
@@ -326,7 +326,7 @@
         <div class="footer-container">
             <div class="footer-col brand-col">
                 <div class="logo">
-                    <h2>🍽️ Spice Haven</h2>
+                    <a href="#home"><h2>🍽️ Spice Haven</h2></a>
                 </div>
                 <p>
                     Experience the art of authentic cuisine, luxury dining, and unforgettable flavors crafted with passion.
@@ -342,11 +342,11 @@
             <div class="footer-col">
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Popular Menu</a></li>
-                    <li><a href="#">Guest Reviews</a></li>
-                    <li><a href="#">Book a Table</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Popular Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#reviews">Guest Reviews</a></li>
+                    <li><a href="#contact">Book a Table</a></li>
                 </ul>
             </div>
 

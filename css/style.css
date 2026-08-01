@@ -21,7 +21,7 @@
     --glass-bg: rgba(16, 18, 22, 0.65);
     --glass-bg-hover: rgba(26, 29, 36, 0.75);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-border-orange: rgba(255, 107, 0, 0.25);
+    --glass-border-orange: rgba(255, 107, 0, 0.35);
 
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -47,6 +47,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -60,7 +61,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Dynamic Ambient Glow background elements */
+/* Ambient Glow background elements */
 body::before {
     content: '';
     position: absolute;
@@ -88,7 +89,7 @@ body::after {
 }
 
 /* ==========================================================================
-   Glassmorphism Navigation Bar
+   Sticky Glassmorphism Navigation Bar
    ========================================================================== */
 header {
     position: fixed;
@@ -97,6 +98,7 @@ header {
     width: 100%;
     z-index: 1000;
     padding: 20px 24px;
+    transition: var(--transition-normal);
 }
 
 .navbar {
@@ -115,9 +117,15 @@ header {
     transition: var(--transition-normal);
 }
 
+.navbar.scrolled,
 .navbar:hover {
     border-color: var(--glass-border-orange);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 107, 0, 0.12);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 107, 0, 0.15);
+    background: rgba(16, 18, 22, 0.85);
+}
+
+.logo a {
+    text-decoration: none;
 }
 
 .logo h2 {
@@ -187,11 +195,13 @@ header {
     padding: 12px 28px;
     text-decoration: none;
     border-radius: 50px;
+    border: none;
     box-shadow: var(--shadow-orange);
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
     z-index: 1;
+    cursor: pointer;
 }
 
 .btn::before {
@@ -207,8 +217,21 @@ header {
     transition: var(--transition-fast);
 }
 
+/* Shimmer overlay animation */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(30deg);
+    transition: all 0.6s ease;
+}
+
 .btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: 0 12px 35px rgba(255, 107, 0, 0.55);
 }
 
@@ -216,8 +239,12 @@ header {
     opacity: 1;
 }
 
+.btn:hover::after {
+    left: 130%;
+}
+
 .btn:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.98);
 }
 
 .btn-outline {
@@ -235,6 +262,7 @@ header {
     font-size: 0.95rem;
     text-decoration: none;
     transition: var(--transition-normal);
+    cursor: pointer;
 }
 
 .btn-outline:hover {
@@ -291,7 +319,6 @@ header {
     gap: 20px;
 }
 
-/* Hero Image Showcase */
 .hero-image {
     flex: 0.9;
     display: flex;
@@ -318,7 +345,6 @@ header {
         transform: scale(0.9);
         opacity: 0.6;
     }
-
     100% {
         transform: scale(1.15);
         opacity: 1;
@@ -343,40 +369,17 @@ header {
 }
 
 @keyframes floatAnimation {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0px);
     }
-
     50% {
         transform: translateY(-12px);
     }
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* ==========================================================================
-   Popular Dishes Section
+   Section Title Utility
    ========================================================================== */
-.popular-dishes {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 100px 24px;
-    position: relative;
-    z-index: 1;
-}
-
 .section-title {
     text-align: center;
     margin-bottom: 60px;
@@ -411,6 +414,17 @@ header {
     margin: 0 auto;
 }
 
+/* ==========================================================================
+   Popular Dishes Section
+   ========================================================================== */
+.popular-dishes {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 100px 24px;
+    position: relative;
+    z-index: 1;
+}
+
 .dish-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(320px, 1fr));
@@ -418,18 +432,6 @@ header {
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-@media (max-width: 1100px) {
-    .dish-grid {
-        grid-template-columns: repeat(2, minmax(300px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .dish-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 .dish-card {
@@ -518,19 +520,6 @@ header {
     width: 100%;
     text-align: center;
     justify-content: center;
-    padding: 14px 28px;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    border-radius: 50px;
-    background: var(--orange-gradient);
-    box-shadow: var(--shadow-orange);
-    transition: all var(--transition-normal);
-}
-
-.dish-content .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(255, 107, 0, 0.6);
 }
 
 /* ==========================================================================
@@ -556,7 +545,6 @@ header {
     border-radius: 32px;
     padding: 48px;
     box-shadow: var(--shadow-lg);
-    animation: fadeInUp 0.8s ease-out;
     transition: var(--transition-normal);
 }
 
@@ -674,46 +662,6 @@ header {
     font-weight: 800;
 }
 
-@media (max-width: 1024px) {
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 36px;
-    }
-
-    .about-image img {
-        height: 360px;
-    }
-
-    .about-content h2 {
-        font-size: 2.2rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .about-container {
-        padding: 24px;
-        border-radius: 24px;
-    }
-
-    .about-image img {
-        height: 280px;
-    }
-
-    .about-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .about-features {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .feature-badge {
-        width: 100%;
-    }
-}
-
 /* ==========================================================================
    Customer Testimonials Section
    ========================================================================== */
@@ -795,21 +743,6 @@ header {
     line-height: 1.7;
     font-style: italic;
     flex-grow: 1;
-    position: relative;
-}
-
-@media (max-width: 1100px) {
-    .testimonial-grid {
-        grid-template-columns: repeat(2, minmax(300px, 1fr));
-        gap: 24px;
-    }
-}
-
-@media (max-width: 768px) {
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
 }
 
 /* ==========================================================================
@@ -830,7 +763,6 @@ header {
     align-items: stretch;
 }
 
-/* Left: Contact Info Card */
 .contact-info-card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px) saturate(180%);
@@ -911,7 +843,6 @@ header {
     margin-bottom: 12px;
 }
 
-/* Right: Reservation Form Card */
 .reservation-form-card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px) saturate(180%);
@@ -992,31 +923,6 @@ header {
     padding: 16px;
     font-size: 1.05rem;
     margin-top: 10px;
-    cursor: pointer;
-    border: none;
-}
-
-@media (max-width: 1024px) {
-    .reservation-container {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-}
-
-@media (max-width: 600px) {
-    .reservation-section {
-        padding: 60px 16px;
-    }
-
-    .contact-info-card,
-    .reservation-form-card {
-        padding: 24px;
-        border-radius: 20px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* ==========================================================================
@@ -1170,30 +1076,22 @@ header {
     font-size: 0.88rem;
 }
 
-@media (max-width: 1024px) {
-    .footer-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-}
-
-@media (max-width: 600px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 36px;
-    }
-
-    .newsletter-form {
-        flex-direction: column;
-    }
-
-    .newsletter-form .btn {
-        width: 100%;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 /* ==========================================================================
-   Responsive Design
+   Unified Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 1100px) {
     .hero-content h1 {
@@ -1202,6 +1100,38 @@ header {
 
     .hero-image img {
         max-width: 420px;
+    }
+
+    .dish-grid,
+    .testimonial-grid {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        gap: 24px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 36px;
+    }
+
+    .about-image img {
+        height: 360px;
+    }
+
+    .about-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .reservation-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
     }
 }
 
@@ -1243,6 +1173,14 @@ header {
     }
 }
 
+@media (max-width: 768px) {
+    .dish-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
 @media (max-width: 600px) {
     .navbar {
         flex-direction: column;
@@ -1277,5 +1215,39 @@ header {
 
     .hero-image img {
         max-width: 100%;
+    }
+
+    .about-container,
+    .contact-info-card,
+    .reservation-form-card {
+        padding: 24px;
+        border-radius: 20px;
+    }
+
+    .about-image img {
+        height: 280px;
+    }
+
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-features {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .feature-badge {
+        width: 100%;
+    }
+
+    .form-row,
+    .newsletter-form {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .newsletter-form .btn {
+        width: 100%;
     }
 }
